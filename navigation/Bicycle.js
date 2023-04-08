@@ -75,7 +75,7 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-      {/* <View>
+      <View>
         <Text style={{
 
           fontSize: 20,
@@ -87,7 +87,7 @@ const Home = () => {
           position: 'absolute'
         }}>
           Ban co</Text>
-      </View> */}
+      </View>
     </View>
   )
 }

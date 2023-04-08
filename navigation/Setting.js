@@ -1,13 +1,41 @@
 import { View, Text ,StyleSheet,TouchableOpacity,Image,FlatList} from 'react-native'
 import React from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import DATA from './data';
 import USER from './userr';
 
-
-
+import Login from '../screens/Login';
+import { Auth } from 'firebase/auth';
 const Setting = () => {
+    const navigation = useNavigation();
+
+//     const handleLogout=()=>{
+//         firebase.auth().logOut().catch(error=>{
+//             navigation.navigate('Login')
+//          Alert.alert(error.message)
+//         })
+         
+//  }const doUserLogOut = async function () {
+    return await Parse.User.logOut()
+      .then(async () => {
+        // To verify that current user is now empty, currentAsync can be used
+        const currentUser = await Parse.User.currentAsync();
+        if (currentUser === null) {
+          Alert.alert('Success!', 'No user is logged in anymore!');
+        }
+        // Navigation dispatch calls a navigation action, and popToTop will take
+        // the user back to the very first screen of the stack
+        navigation.dispatch(StackActions.popToTop());
+        return true;
+      })
+      .catch((error) => {
+        Alert.alert('Error!', error.message);
+        return false;
+      });
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>

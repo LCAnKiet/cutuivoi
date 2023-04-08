@@ -1,76 +1,51 @@
-import React from 'react'
-import {StatusBar, StyleSheet, Text, View, Ionicons, ImageBackground} from 'react-native';
+import * as React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import Ionic from 'react-native-vector-icons/Ionicons'
+import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from '../navigation/Home';
+import Scan from '../navigation/Scan';
+import Setting from '../navigation/Setting';
+import Method from '../navigation/Method';
+const tab = createMaterialBottomTabNavigator()
 
 
 
-
-
-import Icon from 'react-native-ico-material-design';
-
-
-const homeName='Home';
-const methodName='Methodd';
-const settingName='Settingg';
-const bicycleName='Bicyclee';
-
-const Tab = createBottomTabNavigator();
-
- const MainContainer=()=>{
-    return(
-    <NavigationContainer independent={true}>
-        <Tab.Navigator
-        initialRouteName={homeName} 
-        screenOptions={({route})=>({
-            tabBarIcon:({focused,color,size})=>{
-                let iconName;
-                let rn =route.name;
-                if(rn===homeName){
-                    iconName = focused? 'home':'home-outline'
-                }
-                else if(rn === methodName){
-                    iconName = focused? 'list':'list-outline'
-                }
-                else if(rn === settingName){
-                    iconName = focused? 'setting':'setting-outline'
-                }
-                else if(rn === bicycleName){
-                    iconName = focused? 'bicycle':'bicycle-outline'
-                }
-                 
-                return<Ionicons name={iconName} size={size} color={color}/>
-            },
-        })}
-        tabBarOptions={{
-            activeTintColor:'tomato',
-            inactiveTintColor:'grey',
-            labelStyle:{paddingBottom:10,fontSize:10},
-            style:{padding:10,height:70}
-        }}
-        >
-
-            <Tab.Screen name='homeName' component={HomeScreen}/>
-            <Tab.Screen name='methodName' component={Method}/>
-            <Tab.Screen name='settingName' component={Setting}/>
-            <Tab.Screen name='bicycleName' component={Bicycle}/>
-
-        </Tab.Navigator>
-       </NavigationContainer>
-    );
-}
-export default MainContainer;
-
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:'#f8f8ff'
-    },
-    txt:{
-        justifyContent:'center',
-        fontSize:30,
-        marginHorizontal:50,
-        marginVertical:50
+export default function MainContainer() {
+    return (
+        <tab.Navigator initialRouteName="Home"
+      activeColor="#1e90ff"
+      inactiveColor="#3e2465"
+      screenOptions={({route})=>({
+        tabBarIcon:({focused,color,size})=>{
+            let iconName;
+            let rn =route.name;
+            if(rn==='Home'){
+                iconName = focused? 'home':'home-outline'
+            }
+            else if(rn === 'Scan'){
+                iconName = focused? 'qr-code':'qr-code-outline'
+            }
+            else if(rn === 'Method'){
+                iconName = focused? 'bicycle':'bicycle-outline'
+            }
+            else if(rn === 'Setting'){
+                iconName = focused? 'menu':'menu-outline'
+            }
+             
+            return<Ionic name={iconName} size={size} color={color}/>
+        },
+    })}
+      >
+          <tab.Screen name='Home' component={Home} />
+        <tab.Screen name='Scan' component={Scan} />
+        <tab.Screen name='Method' component={Method} />
+        <tab.Screen name='Setting' component={Setting} />
+      </tab.Navigator>
         
-    }
-})
+    )
+    
+  }
+  

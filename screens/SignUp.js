@@ -3,6 +3,7 @@ import { View,Text,Image,StyleSheet,SafeAreaView, TextInput, TouchableOpacity} f
 import { StatusBar } from 'expo-status-bar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp=()=>{
 
@@ -11,7 +12,18 @@ const SignUp=()=>{
     const [textt2, onChangeEmail] = React.useState('');
     const [textt3, onChangePass] = React.useState('');
     const [textt4, onChangePassY] = React.useState('');
+    const handleSignIn=()=>{
+        signInWithEmailAndPassword(auth,email,pass).then(()=>{
+            console.log('Craeteed')
+            const user =userCredential.user;
+            console.log(user)
+        })
+        .catch(error=>{
+            console.log(error)
+        }
 
+        )
+    }
     return(
 
         
