@@ -4,14 +4,16 @@ import { StatusBar } from 'expo-status-bar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import MainContainer from './MainContainer';
 
-const SignUp=()=>{
+const SignUp=({navigation})=>{
 
     const [textt, onChangeSDT] = React.useState('');
     const [textt1, onChangeName] = React.useState('');
     const [textt2, onChangeEmail] = React.useState('');
     const [textt3, onChangePass] = React.useState('');
     const [textt4, onChangePassY] = React.useState('');
+
     const handleSignIn=()=>{
         signInWithEmailAndPassword(auth,email,pass).then(()=>{
             console.log('Craeteed')
@@ -83,7 +85,7 @@ const SignUp=()=>{
             </View>
 
             <View style={styles.btnSU}>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={() => navigation.navigate(MainContainer)}>
                     <Text style={{
                         textAlign: 'center',
                         fontWeight: 'bold',

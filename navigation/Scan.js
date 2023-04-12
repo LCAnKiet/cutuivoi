@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, Linking } from 'react-native'
+import { View, Text, StyleSheet, Button, Linking, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 
@@ -13,10 +13,20 @@ export default function Scan() {
     })();
   }, []);
 
+  
   const handleBarCodeSacnned = ({ type, data }) => {
     setScanned(true);
-    alert(`Yar Sure Bạn vừa SCAN loại ${type} và nó là ${Linking.openURL(`${data}`)} ĐÚNG KHUM`);
+    Alert.alert('Thông Báo',`Bạn vừa SCAN xe số ${Linking.openURL(`${data}`)}`,[
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'Đúng vậy', onPress: () => console.log('OK Pressed')},
+    ]);
+    
   };
+  
   if (hasPermission === null) {
     return <Text> Requesting for camera permisson</Text>
   }
