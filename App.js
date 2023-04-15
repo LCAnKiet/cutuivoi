@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import MainContainer from './screens/MainContainer';
+import ChooseLocation from './navigation/ChooseLocation';
 import Setting from './navigation/Setting';
 //navigation
 
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen options={{ headerShown: false }} name="MainContainer" component={MainContainer} />
+        <Stack.Screen  name="c" component={ChooseLocation} />
 
       </Stack.Navigator>
     </NavigationContainer>
