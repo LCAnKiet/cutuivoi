@@ -13,20 +13,20 @@ const AddPick=({
   }
   return (
     <View style={styles.container}>
-      <GooglePlacesAutocomplete
-        placeholder={placeholderText}
-        onPress={onPressAddress}
-        fetchDetails={true}
-        query={{
-          key: GOOGLE_MAPS_KEY,
-          language: 'en',
-        }}
-        styles={{
-          textInputContainer:styles.containerStyle,
-          textInput:styles.textInputStyle
-        }}
-      />
-    </View>
+            <GooglePlacesAutocomplete
+                placeholder={placeholderText}
+                onPress={onPressAddress}
+                fetchDetails={true}
+                query={{
+                    key: GOOGLE_MAPS_KEY,
+                    language: 'en'
+                }}
+                styles={{
+                    textInputContainer: styles.containerStyle,
+                    textInput: styles.textInputStyle
+                }}
+            />
+        </View>
 
   );
 }

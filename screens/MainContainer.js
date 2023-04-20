@@ -9,6 +9,7 @@ import Home from '../navigation/Home';
 import Scan from '../navigation/Scan';
 import Setting from '../navigation/Setting';
 import Method from '../navigation/Method';
+import Zone from '../navigation/Zone.js';
 const tab = createMaterialBottomTabNavigator()
 
 
@@ -31,6 +32,9 @@ export default function MainContainer() {
             else if(rn === 'Method'){
                 iconName = focused? 'bicycle':'bicycle-outline'
             }
+            else if(rn === 'Zone'){
+              iconName = focused? 'map':'map-outline'
+          }
             else if(rn === 'Setting'){
                 iconName = focused? 'menu':'menu-outline'
             }
@@ -42,6 +46,7 @@ export default function MainContainer() {
           <tab.Screen name='Home' component={Home} />
         <tab.Screen name='Scan' component={Scan} />
         <tab.Screen name='Method' component={Method} />
+        <tab.Screen name='Zone' component={Zone} />
         <tab.Screen name='Setting' component={Setting} />
       </tab.Navigator>
         

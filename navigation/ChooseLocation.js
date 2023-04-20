@@ -6,52 +6,56 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
  import CustomBTN from './CustomBTN';
  import { useNavigation } from '@react-navigation/native';
 
-const ChooseLocation=({})=> {
+const ChooseLocation=(props)=> {
     const navigation = useNavigation();
-    const {state,setState}=useState({
+    const [state, setState]=useState({
         pickCord:{},
-        desCord:{}
+        desCord:{},
     })
+    const {pickCord,desCord}=state
+    
     const onDone=()=>{
-
+        props.route.params.getCordinates({
+            pickCord,
+            desCord
+        })
         navigation.goBack()
     }
     const fetchAddressCord=(lat,lng)=>{
-        console.log("latitude",lat)
-        console.log("longtitude",lng)
-
+        
+        setState({
+            ...state,pickCord:{
+            latitude:lat,
+            longtitude:lng,
+        }})
     }
     const fetchDestinationCord=(lat,lng)=>{
-        console.log("latitude",lat)
-        console.log("longtitude",lng)
-
+       
+        setState({
+            ...state,desCord:{
+            latitude:lat,
+            longtitude:lng,
+        }})
     }
     return(
-        <View style={styles.container}>
-            {/* <ScrollView style={{backgroundColor:'white',
-            flex:1,
-            padding:24}}
-            keyboardShouldPersistTaps="handled"
-            > */}
-            <AddPick
-            placeholderText="VI TRI HIEN TAI"
-            fetchAddress={fetchAddressCord}
-            />
-            
-            <View style={{marginBottom:16}}/>
-            <AddPick
-            placeholderText="VI TRI MUON DEN "
-            fetchAddress={fetchDestinationCord}
-            />
-
-            <CustomBTN
-                btnText="DONE"
-                btnStyle={{marginTop:24 }}
-                onPress={onDone}
-            />
-            {/* </ScrollView> */}
-            
-        </View>
+        
+         <View style={styles.container}>
+         <ScrollView
+             keyboardShouldPersistTaps="handled"
+             style={{ backgroundColor: 'white', flex: 1, padding: 24 }}
+         >
+             <View style={{ marginBottom: 16 }} />
+             <AddPick
+                 placheholderText="VI TRI HIEN TAI"
+                 fetchAddress={fetchAddressCord}
+             />
+             <CustomBTN
+                 btnText="Done"
+                 onPress={onDone}
+                 btnStyle={{marginTop: 24}}
+             />
+         </ScrollView>
+     </View>
     );
 };
 
