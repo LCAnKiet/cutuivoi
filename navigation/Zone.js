@@ -12,11 +12,11 @@
       //   [106.77461561906861,10.870252344833935 ], 
       //   [106.78698270255393, 10.868287677095443 ], 
       import React, { Component } from 'react';
-      import { Dimensions, Text, View } from 'react-native';
+      import { Dimensions, Text, View ,Image,TouchableOpacity} from 'react-native';
       import MapView, { Callout, Marker, Polygon } from 'react-native-maps';
       import data from './point';
       const { width, height } = Dimensions.get('window');
-      
+      const img = require('../assets/point.png')
       export default class App extends Component {
         constructor() {
           super();
@@ -77,25 +77,78 @@
                   <View key={index}>
                     <Polygon
                       coordinates={polygon.coordinates}
-                      fillColor="rgba(0, 200, 0, 0.5)"
+                      fillColor="rgba(0, 255, 0, 0.1)"
                       strokeColor="rgba(0,0,0,0.5)"
                       strokeWidth={2}
                       onPress={() => this.toggle(polygon)}
                     />
-                    <Marker
-                      ref={ref => polygon.marker = ref}
-                      coordinate={polygon.coordinates[0]}>
+                    <Marker image={img}
+                    // https://cdn-icons-png.flaticon.com/512/5266/5266122.png
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.80534451057385, latitude: 10.880716731633443 }}>
+                        
+
                       <Callout>
-                        <Text>Hello!</Text>
+                        <Text>Trường Đại học Bách khoa</Text>
+                      </Callout>  
+
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.79918062591409, latitude: 10.8758357426281 }}>
+                      <Callout>
+                        <Text>Trường Đại học Khoa học Tự nhiên</Text>
                       </Callout>
                     </Marker>
-                    {/* <Marker
-                     ref={ref => data.coordinates = ref}
-
-                      // coordinate={data.coordinates[0]}
-                      >
+                   
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.80209849707911, latitude: 10.872081072483068 }}>
+                      <Callout>
+                        <Text>Trường Đại học Khoa học Xã hội và Nhân văn</Text>
                       </Callout>
-                    </Marker> */}
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.80163032591521, latitude: 10.8777322971507 }}>
+                      <Callout>
+                        <Text>Trường Đại học Quốc tế</Text>
+                      </Callout>
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.80305394771223, latitude: 10.870166847460377 }}>
+                      <Callout>
+                        <Text>Trường Đại học Công nghệ Thông tin</Text>
+                      </Callout>
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.77830268399818, latitude: 10.87065230062484 }}>
+                      <Callout>
+                        <Text>Trường Đại học Kinh tế – Luật</Text>
+                      </Callout>
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.78251843940893, latitude: 10.882364774374935 }}>
+                      <Callout>
+                        <Text>Ký túc xá Khu B Đại học Quốc gia TP.HCM</Text>
+                      </Callout>
+                    </Marker>
+
+                    <Marker image={img}
+                      // ref={ref => polygon.marker = ref}
+                      coordinate={{ longitude: 106.80631205474928, latitude: 10.878455113046424 }}>
+                      <Callout>
+                        <Text>Ký túc xá Khu A Đại học Quốc gia TP.HCM</Text>
+                      </Callout>
+                    </Marker>
                   </View>
                 ))}
               </MapView>
