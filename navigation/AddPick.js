@@ -1,9 +1,11 @@
 import React ,{Component}from 'react';
 import { View, Text ,StyleSheet} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import{GOOGLE_MAPS_KEY} from './ggMap_key'
+import{GOOGLE_MAP_KEY} from './ggMap_key'
+
+
 const AddPick=({
-  placeholderText,fetchAddress
+  placeholderText,fetchAddress,
 })=> {
   const onPressAddress=(data,details)=>{
     console.log("detail+++>>",details)
@@ -15,16 +17,21 @@ const AddPick=({
     <View style={styles.container}>
             <GooglePlacesAutocomplete
                 placeholder={placeholderText}
-                onPress={onPressAddress}
+                onPress={(data,details=null)=>{
+                  console.log(JSON.stringify(details?.geometry?.location));
+
+                }}
                 fetchDetails={true}
                 query={{
-                    key: GOOGLE_MAPS_KEY,
+                    key: GOOGLE_MAP_KEY,
                     language: 'en'
                 }}
                 styles={{
                     textInputContainer: styles.containerStyle,
                     textInput: styles.textInputStyle
                 }}
+                onFail={error=>console.log(error)}
+
             />
         </View>
 
