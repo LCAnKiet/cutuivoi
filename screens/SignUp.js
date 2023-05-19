@@ -85,7 +85,7 @@ const SignUp=({navigation})=>{
             </View>
 
             <View style={styles.btnSU}>
-                <TouchableOpacity onPress={() => navigation.navigate(MainContainer)}>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                     <Text style={{
                         textAlign: 'center',
                         fontWeight: 'bold',

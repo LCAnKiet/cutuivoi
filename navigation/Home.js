@@ -1,7 +1,11 @@
 import { View, Text , StyleSheet,TouchableOpacity,Image} from 'react-native'
 import React from 'react'
-
+import Zone from './Zonee'
+import Zonee from './Zonee'
+import { useNavigation } from '@react-navigation/native';
+import checkedPolygon from './checkPolygon';
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,7 +23,7 @@ const Home = () => {
         </Text>
 
         <View >
-          <TouchableOpacity style={styles.btnPay}>
+          <TouchableOpacity style={styles.btnPay} onPress={() => navigation.navigate('h')} checkedPolygon>
             <Image style={styles.btnGG} source={{ url: 'https://cdn-icons-png.flaticon.com/512/482/482541.png' }} />
 
             <Text style={{
@@ -33,8 +37,8 @@ const Home = () => {
               Nap tien
             </Text>
 
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.btnDX}>
+          </TouchableOpacity >
+          <TouchableOpacity style={styles.btnDX} onPress={() => navigation.navigate('Danh Sach Tram')}>
             <Image style={styles.btnGG} source={{ url: 'https://cdn-icons-png.flaticon.com/512/2634/2634158.png' }} />
 
             <Text style={{

@@ -10,6 +10,7 @@ import Scan from '../navigation/Scan';
 import Setting from '../navigation/Setting';
 import Method from '../navigation/Method';
 import Zone from '../navigation/Zone.js';
+import Zonee from '../navigation/Zonee';
 const tab = createMaterialBottomTabNavigator()
 
 
@@ -46,7 +47,7 @@ export default function MainContainer() {
           <tab.Screen name='Home' component={Home} />
         <tab.Screen name='Scan' component={Scan} />
         <tab.Screen name='Method' component={Method} />
-        <tab.Screen name='Zone' component={Zone} />
+        <tab.Screen name='Zone' component={Zonee} />
         <tab.Screen name='Setting' component={Setting} />
       </tab.Navigator>
         

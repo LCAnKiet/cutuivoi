@@ -15,6 +15,7 @@ import { firebaseConfig } from '../config';
 
 
 
+
 const Login = () => {
     const [email, setEmail] = React.useState('');
     const [pass, setPass] = React.useState('');
@@ -22,12 +23,12 @@ const Login = () => {
     const auth = getAuth(app);
     const navigation = useNavigation();
 
-    const handleCreateAcc = () => {
+    const handleCreateAcc = (navigate) => {
         signInWithEmailAndPassword(auth, email, pass).then((userCredential) => {
             console.log('Account created')
             const user = userCredential.user;
             console.log(user)
-            navigation.navigate('MainContainer')
+            navigation.navigate('Home')
         })
             .catch(error => {
                 console.log(error)
