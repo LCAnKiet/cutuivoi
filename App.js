@@ -14,8 +14,9 @@ import Zonee from './navigation/Zonee'
 import XeThue from './navigation/XeThue';
 import InfoXe from './navigation/infoXe';
 import DanhSachTram from './navigation/DanhSachTram';
+import ThanhToan from './navigation/ThanhToan';
 //navigation
-
+// import firebase from 'firebase'
 
 //
 const Stack= createStackNavigator();
@@ -27,10 +28,12 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen options={{ headerShown: false }} name="Home" component={MainContainer} />
-        <Stack.Screen  name="c" component={ChooseLocation} />
+        <Stack.Screen  name="c" component={ChooseLocation} /> 
         <Stack.Screen   name="Xe" component={XeThue} />
         <Stack.Screen   name="Danh Sach Tram" component={DanhSachTram} />
-        <Stack.Screen  name="h" component={Zonee} />
+        <Stack.Screen  options={{ headerShown: false }} name="Pay" component={ThanhToan} />
+
+        <Stack.Screen  name="Map" component={Zonee} />
 
       </Stack.Navigator>
     </NavigationContainer>

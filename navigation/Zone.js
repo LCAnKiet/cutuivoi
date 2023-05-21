@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Dimensions, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Dimensions, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 import MapView, { Callout, Marker, Polygon } from 'react-native-maps';
-import { point } from '@turf/helpers';
+import { point, polygon } from '@turf/helpers';
 import destination from '@turf/destination';
 import * as Location from 'expo-location';
+import * as geolib from 'geolib';
+import getDistance from 'geolib/es/getDistance';
 
 const { width, height } = Dimensions.get('window');
 const img = require('../assets/point.png')
@@ -118,6 +120,29 @@ export default class App extends Component {
 
     polygon.open = !polygon.open;
   }
+  checkPologon(coordinates) {
+    let bol =geolib.isPointInPolygon(coordinates, polygon.coordinates);
+     
+    let msg ='';
+    if(bol){
+      msg='You in side';
+    }
+    else{
+      msg='you out side';
+    }
+
+    Alert.alert('geo ',msg,[
+      {
+        text:'Cancel',
+        onPress:()=>console.log('Cancel Pressed'),
+        style:'cancel'
+      },
+      {
+        text:'OK',
+        onPress:()=>console.log('OK Pressed'),
+      }
+    ])
+  }
 
   render() {
     return (
@@ -131,7 +156,7 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.btn}>
-            <TouchableOpacity>
+            <TouchableOpacity     onPress={() => this.checkPologon()}>
               <Image source={(rm)}
               />
             </TouchableOpacity>
@@ -143,6 +168,7 @@ export default class App extends Component {
         <MapView
           onRegionChangeComplete={this.onRegionChangeComplete}
           showsUserLocation
+          checkPologon
           style={styles.map}
           initialRegion={{
             latitude: 10.762622,
@@ -151,14 +177,13 @@ export default class App extends Component {
             longitudeDelta: 0.02,
           }}>
 
-          {
-            this.state.elements.map((element) => {
-
+          {   this.state.elements.map((element) => {
               let title = "保育園"
               if (element.tags["name"] !== undefined) {
                 title = element.tags["name"]
               }
               return (<MapView.Marker
+                
                 coordinate={{
                   latitude: element.lat,
                   longitude: element.lon,
@@ -177,17 +202,15 @@ export default class App extends Component {
                 fillColor="rgba(0, 255, 0, 0.1)"
                 strokeColor="rgba(0,0,0,0.5)"
                 strokeWidth={2}
-                onPress={() => this.toggle(polygon)}
+                // onPress={() => this.toggle(polygon)}
               />
               <Marker image={img}
                 // https://cdn-icons-png.flaticon.com/512/5266/5266122.png
                 // ref={ref => polygon.marker = ref}
                 coordinate={{ longitude: 106.80534451057385, latitude: 10.880716731633443 }}>
-
                 <Callout>
                   <Text>Trường Đại học Bách khoa</Text>
                 </Callout>
-
               </Marker>
 
               <Marker image={img}

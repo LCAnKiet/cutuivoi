@@ -13,17 +13,17 @@ const Home = () => {
 
           fontSize: 20,
           padding: 10,
-          color: '#dc143c',
+          color: '#fff',
           fontWeight: 'bold',
           marginTop: 100,
           marginHorizontal: 80,
           position: 'absolute'
         }}>
-          Xin chao
+          Xin chào,     Kiệt
         </Text>
 
         <View >
-          <TouchableOpacity style={styles.btnPay} onPress={() => navigation.navigate('h')} checkedPolygon>
+          <TouchableOpacity style={styles.btnPay} onPress={() => navigation.navigate('Map')} checkedPolygon>
             <Image style={styles.btnGG} source={{ url: 'https://cdn-icons-png.flaticon.com/512/482/482541.png' }} />
 
             <Text style={{
@@ -34,7 +34,7 @@ const Home = () => {
               marginTop: 40
 
             }}>
-              Nap tien
+              Map
             </Text>
 
           </TouchableOpacity >
@@ -50,7 +50,7 @@ const Home = () => {
               marginHorizontal: 20,
 
             }}>
-              Phat
+            Trạm
             </Text>
 
           </TouchableOpacity>
@@ -73,7 +73,7 @@ const Home = () => {
               margin: 25
 
             }}>
-              Lich su
+              Lịch sử
             </Text>
 
           </TouchableOpacity>

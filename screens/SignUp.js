@@ -40,7 +40,7 @@ const SignUp=({navigation})=>{
                     onChangeText={onChangeSDT}
                     value={textt}
                     keyboardType="numeric"
-                    placeholder="Nhap So dien thoai"
+                    placeholder="Nhập số điện thoại"
                 />
             </View>
 
@@ -49,7 +49,7 @@ const SignUp=({navigation})=>{
                 style={styles.input}
                     onChangeText={onChangeName}
                     value={textt1}
-                    placeholder="Nhap Ten"
+                    placeholder="Nhập tên"
                 />
             </View>
 
@@ -58,7 +58,7 @@ const SignUp=({navigation})=>{
                 style={styles.input}
                     onChangeText={onChangeEmail}
                     value={textt2}
-                    placeholder="Nhap Email"
+                    placeholder="Nhập Email"
                 />
             </View>
 
@@ -69,7 +69,7 @@ const SignUp=({navigation})=>{
                     value={textt3}
                     secureTextEntry={true}
                     keyboardType="numeric"
-                    placeholder="Nhap Mat Khau"
+                    placeholder="Nhập mật khẩu"
                 />
             </View>
 
@@ -80,7 +80,7 @@ const SignUp=({navigation})=>{
                     value={textt4}
                     secureTextEntry={true}
                     keyboardType="numeric"
-                    placeholder="Xac Nhan lai Mat Khau"
+                    placeholder="Xác nahajn lại mật khẩu"
                 />
             </View>
 
@@ -89,7 +89,8 @@ const SignUp=({navigation})=>{
                     <Text style={{
                         textAlign: 'center',
                         fontWeight: 'bold',
-                    }}>SIGN UP</Text>
+                        color:'#fff'
+                    }}>ĐĂNG KÝ</Text>
                 </TouchableOpacity>
             </View>
 

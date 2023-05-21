@@ -64,7 +64,7 @@ const Login = () => {
                         onChangeText={(text) => setEmail(text)}
                         // autoFocus={true}
                         keyboardType=""
-                        placeholder="Nhap So dien thoai"
+                        placeholder="Nhập số điện thoại"
                     />
                 </View>
                 <View style={styles.form}>
@@ -74,7 +74,7 @@ const Login = () => {
                         onChangeText={(text) => setPass(text)}
                         secureTextEntry={true}
                         keyboardType=""
-                        placeholder="Nhap Mat Khau"
+                        placeholder="Nhập mật khẩu"
                     />
                     <FontAwesome5 name="lock" size={20} color="black" style={{
                         position: 'absolute',
@@ -85,14 +85,15 @@ const Login = () => {
                         <Text style={{
                             textAlign: 'center',
                             fontWeight: 'bold',
-                        }}>LOGIN</Text>
+                            color:'#fff'
+                        }}>ĐĂNG NHẬP</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.btnFgP}>
                         <Text style={{
                             marginTop: 10,
                             marginLeft: 160,
                             color: 'blue',
-                        }}>Forgot Password ?</Text>
+                        }}>Bạn đã quên mật khẩu ?</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
@@ -106,12 +107,12 @@ const Login = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.noAcc}>
-                    <Text>Ban chua co tai khoan ?
+                    <Text>Bạn chưa có tài khoản ?
                         <TouchableOpacity onPress={() => navigation.navigate(SignUp)} >
                             <Text style={{
 
                                 color: 'blue',
-                            }}>   Dang Ky</Text>
+                            }}>   Đăng ký</Text>
                         </TouchableOpacity>
                     </Text>
                 </View>

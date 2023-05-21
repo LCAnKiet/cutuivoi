@@ -1,4 +1,4 @@
-import React, { Component,useRef,useState,useEffect } from 'react';
+import React, { Component, useRef, useState, useEffect } from 'react';
 import { Dimensions, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 import MapView, { Callout, Marker, Polygon } from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -12,7 +12,7 @@ const loc = require('../assets/circle.png')
 const rm = require('../assets/remove.png')
 import { useNavigation } from '@react-navigation/native';
 // import checkedPologon from './checkPolygon';
-let myPolygon=[
+let myPolygon = [
     { longitude: 106.79807670391571, latitude: 10.865385303360243 },
     { longitude: 106.80739748382999, latitude: 10.873913736498887 },
     { longitude: 106.81112579576306, latitude: 10.885388782710251 },
@@ -25,13 +25,13 @@ let myPolygon=[
     { longitude: 106.78698270255393, latitude: 10.868287677095443 },
 ]
 
-export default function Zonee(){
-    const mapRef=useRef(null);
-    const [marker,setMarker]=useState();
+export default function Zonee() {
+    const mapRef = useRef(null);
+    const [marker, setMarker] = useState();
     const navigation = useNavigation();
-    const [location,setLocation]=useState(null);
-    const[error,setErr]=useState(null)
-   
+    const [location, setLocation] = useState(null);
+    const [error, setErr] = useState(null)
+
     // Alert.checkedPologon =(userLocation)=> {
     //     geolib.isPointInPolygon(userLocation, myPolygon);
     //     let msg ='';
@@ -41,7 +41,7 @@ export default function Zonee(){
     //     else{
     //       msg='Bạn đã oử ngoài Khu Vực cho phép hãy quay trở lại';
     //     }
-    
+
     //     Alert.alert('THÔNG BÁO ',msg,[
     //         {
     //           text:'Cancel',
@@ -54,21 +54,42 @@ export default function Zonee(){
     //         }
     //       ])
     //   }
-      
-    
-    
-    
-    return(
+
+    function checkPologon(coordinates) {
+        let bol = geolib.isPointInPolygon(coordinates, myPolygon);
+        let msg = '';
+        if (bol) {
+            msg = 'Bạn đang ở trong Khu Vực cho phép';
+        }
+        else {
+            msg = 'Bạn đã ra ngoài Khu Vực cho phép hãy quay trở lại';
+        }
+
+        Alert.alert('THÔNG BÁO ', msg, [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel'
+            },
+            {
+                text: 'Tôi biết rồi !',
+                onPress: () => console.log('OK Pressed'),
+            }
+        ])
+    }
+
+
+    return (
         <View style={styles.container}>
             <MapView style={styles.map}
                 showsMyLocationButton={true}
                 showsUserLocation={true}
-                userLocationUpdateInterval={5000} 
+                userLocationUpdateInterval={5000}
                 checkedPologon={5000}
                 onPress={e => {
                     console.log(e.nativeEvent.coordinate);
                     setMarker(e.nativeEvent.coordinate)
-                    // checkPologon(e.nativeEvent.coordinate)
+                    checkPologon(e.nativeEvent.coordinate)
                 }}
                 ref={mapRef}
                 initialRegion={{
@@ -150,23 +171,71 @@ export default function Zonee(){
                 </Marker>
 
             </MapView>
+
+            <View >
+                <View style={styles.o}>
+                <Image style={styles.btnHis}  source={require('../assets/time.png')}  />
+                    <Text style={{
+                            fontSize: 20,
+                            padding: 10,
+                            color: '#DCDCDC',
+                            fontWeight: 'bold',
+                            marginHorizontal: 65,
+                            margin: 10
+
+                        }}>
+                        6p
+                    </Text>
+                </View>
+                <View style={styles.oo}>
+                    <TouchableOpacity style={styles.btnBack} >
+
+                        <Text style={{
+                            fontSize: 20,
+                            padding: 10,
+                            color: '#fff',
+                            fontWeight: 'bold',
+                            marginHorizontal: 30,
+                            // margin: 25
+
+                        }}>
+                            Trả xe
+                        </Text>
+
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     );
 }
 
 const styles = {
     container: {
-      alignItems: 'stretch',
-      flex: 1,
+        flex: 1,
     },
     map: {
-      flex: 1,
+        flex: 1,
     },
-    btn: {
-      marginTop: 25,
-      zIndex: -1,
-      padding: 10,
-      alignItems: 'center'
-  
-    }
-  };
+    o: {
+        position: 'resilute',
+
+    }, oo: {
+        position: 'absolute',
+
+    }, btnHis: {
+        position: 'absolute',
+        // padding: 10,
+        height: 25,
+        width: 25,
+        marginHorizontal: 40,
+        margin: 15
+
+    },btnBack: {
+        position: 'absolute',
+        backgroundColor: '#1e90ff',
+        width: 200,
+        height: 60,
+        marginHorizontal: 200,
+    
+      },
+};
