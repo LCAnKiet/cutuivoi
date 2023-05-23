@@ -22,7 +22,7 @@ export default function Scan() {
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
-      {text: 'Đúng vậy', onPress: () => console.log('OK Pressed')},
+      {text: 'Đúng vậy', onPress: () => console.log('OK Pressed')} ,
     ]);
     
   };

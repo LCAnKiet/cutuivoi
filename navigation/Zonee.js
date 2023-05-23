@@ -93,8 +93,8 @@ export default function Zonee() {
                 }}
                 ref={mapRef}
                 initialRegion={{
-                    latitude: 10.762622,
-                    longitude: 106.660172,
+                    latitude: 10.878354333495512,
+                    longitude: 106.79235758327714,
                     latitudeDelta: 0.0421,
                     longitudeDelta: 0.0421,
                 }}>
@@ -184,11 +184,11 @@ export default function Zonee() {
                             margin: 10
 
                         }}>
-                        6p
+                        00:01:10
                     </Text>
                 </View>
                 <View style={styles.oo}>
-                    <TouchableOpacity style={styles.btnBack} >
+                    <TouchableOpacity style={styles.btnBack} onPress={() => navigation.navigate('Pay')} >
 
                         <Text style={{
                             fontSize: 20,

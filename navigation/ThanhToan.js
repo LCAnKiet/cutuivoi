@@ -5,6 +5,7 @@ import Zonee from './Zonee'
 import { useNavigation } from '@react-navigation/native';
 const ThanhToan = () => {
     const navigation = useNavigation();
+    
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -110,7 +111,7 @@ const ThanhToan = () => {
                     </TouchableOpacity>
                 </View>
                 <View >
-                    <TouchableOpacity style={styles.btnPay} >
+                    <TouchableOpacity style={styles.btnPay} onPress={() => navigation.navigate('Map')} >
 
                         <Text style={{
                             fontSize: 17,
