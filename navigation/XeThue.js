@@ -1,99 +1,26 @@
 import { View, Text,ScrollView , StyleSheet,TouchableOpacity,Image} from 'react-native'
 import React from 'react'
-import Zone from './Zonee'
-import Zonee from './Zonee'
-import InfoXe from './infoXe'
+// import Zone from './Zonee'
+// import Zonee from './Zonee'
+// import InfoXe from './infoXe'
 import { useNavigation } from '@react-navigation/native';
+import Xe1 from '../Stations/Xe1'
+import Xe2 from '../Stations/Xe2';
+import Xe3 from '../Stations/Xe3';
+import Xe4 from '../Stations/Xe4';
+import Xe5 from '../Stations/Xe5';
 
 const XeThue = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ScrollView>
-      <View >
-          <TouchableOpacity style={styles.btnLS} onPress={() => navigation.navigate('Pay')}>
-          <Image style={styles.icon} source={require('../assets/Untitled.png')} />
-            <Text style={styles.textName}>
-              Xe 1
-            </Text>
+        <Xe1/>
+        <Xe2/>
+        <Xe3/>
+        <Xe4/>
+        <Xe5/>
 
-            {/* <Text style={styles.textTT}>
-              Tinh trang
-            </Text> */}
-            <Text style={styles.textG}>
-              5000k/giờ
-            </Text>
-
-          </TouchableOpacity>
-        </View>
-
-        <View >
-          <TouchableOpacity style={styles.btnLS}>
-          <Image style={styles.icon} source={require('../assets/Untitled.png')} />
-            <Text style={styles.textName}>
-              Xe 2
-            </Text>
-{/* 
-            <Text style={styles.textTT}>
-              Tinh trang
-            </Text> */}
-            <Text style={styles.textG}>
-              5000k/giờ
-            </Text>
-
-          </TouchableOpacity>
-        </View>
-
-        <View >
-          <TouchableOpacity style={styles.btnLS}>
-          <Image style={styles.icon} source={require('../assets/Untitled.png')} />
-            <Text style={styles.textName}>
-              Xe 3
-            </Text>
-
-            {/* <Text style={styles.textTT}>
-              Tinh trang
-            </Text> */}
-            <Text style={styles.textG}>
-              5000k/giờ
-            </Text>
-
-          </TouchableOpacity>
-        </View>
-
-        <View >
-          <TouchableOpacity style={styles.btnLS}>
-          <Image style={styles.icon} source={require('../assets/Untitled.png')} />
-            <Text style={styles.textName}>
-              Xe 4
-            </Text>
-
-            {/* <Text style={styles.textTT}>
-              Tinh trang
-            </Text> */}
-            <Text style={styles.textG}>
-              5000k/giờ
-            </Text>
-
-          </TouchableOpacity>
-        </View>
-
-        <View >
-          <TouchableOpacity style={styles.btnLS}>
-          <Image style={styles.icon} source={require('../assets/Untitled.png')} />
-            <Text style={styles.textName}>
-              Xe 5
-            </Text>
-{/* 
-            <Text style={styles.textTT}>
-              Tinh trang
-            </Text> */}
-            <Text style={styles.textG}>
-              5000k/giờ
-            </Text>
-
-          </TouchableOpacity>
-        </View>
       </ScrollView>
       
     </View>

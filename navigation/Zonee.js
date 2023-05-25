@@ -184,11 +184,11 @@ export default function Zonee() {
                             margin: 10
 
                         }}>
-                        00:01:10
+                        {/* 00:01:10 */}
                     </Text>
                 </View>
                 <View style={styles.oo}>
-                    <TouchableOpacity style={styles.btnBack} onPress={() => navigation.navigate('Pay')} >
+                    <TouchableOpacity style={styles.btnBack} onPress={() => navigation.navigate('PayXe1')} >
 
                         <Text style={{
                             fontSize: 20,

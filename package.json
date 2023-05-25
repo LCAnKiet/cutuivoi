@@ -46,7 +46,8 @@
     "react-native-screens": "~3.20.0",
     "react-native-simple-native-geofencing": "^0.8.5",
     "react-native-svg": "13.4.0",
-    "react-native-vector-icons": "^9.2.0"
+    "react-native-vector-icons": "^9.2.0",
+    "react-speech-recognition": "^3.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

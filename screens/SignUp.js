@@ -13,12 +13,14 @@ const SignUp=({navigation})=>{
     const [textt2, onChangeEmail] = React.useState('');
     const [textt3, onChangePass] = React.useState('');
     const [textt4, onChangePassY] = React.useState('');
+   
 
-    const handleSignIn=()=>{
+    const handleSignIn = () =>{
         signInWithEmailAndPassword(auth,email,pass).then(()=>{
             console.log('Craeteed')
             const user =userCredential.user;
             console.log(user)
+            navigation.navigate('Home')
         })
         .catch(error=>{
             console.log(error)
@@ -80,7 +82,7 @@ const SignUp=({navigation})=>{
                     value={textt4}
                     secureTextEntry={true}
                     keyboardType="numeric"
-                    placeholder="Xác nahajn lại mật khẩu"
+                    placeholder="Xác nhận lại mật khẩu"
                 />
             </View>
 

@@ -11,6 +11,8 @@ import Setting from '../navigation/Setting';
 import Method from '../navigation/Method';
 import Zone from '../navigation/Zone.js';
 import Zonee from '../navigation/Zonee';
+import ZoneZone from '../navigation/ZoneZone';
+
 const tab = createMaterialBottomTabNavigator()
 
 
@@ -30,7 +32,7 @@ export default function MainContainer() {
             else if(rn === 'Scan'){
                 iconName = focused? 'qr-code':'qr-code-outline'
             }
-            else if(rn === 'Method'){
+            else if(rn === 'Dẫn đường'){
                 iconName = focused? 'bicycle':'bicycle-outline'
             }
             else if(rn === 'Zone'){
@@ -46,8 +48,8 @@ export default function MainContainer() {
       >
           <tab.Screen name='Home' component={Home} />
         <tab.Screen name='Scan' component={Scan} />
-        <tab.Screen name='Method' component={Method} />
-        <tab.Screen name='Zone' component={Zonee} />
+        <tab.Screen name='Dẫn đường' component={Method} />
+        <tab.Screen name='Zone' component={ZoneZone} />
         <tab.Screen name='Setting' component={Setting} />
       </tab.Navigator>
         

@@ -1,7 +1,7 @@
 import React ,{Component}from 'react';
 import { View, Text ,StyleSheet} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import{GOOGLE_MAP_KEY} from './ggMap_key'
+import{GOOGLE_MAPs_KEY} from './ggMap_key'
 
 
 const AddPick=({
@@ -23,7 +23,7 @@ const AddPick=({
                 }}
                 fetchDetails={true}
                 query={{
-                    key: GOOGLE_MAP_KEY,
+                    key: GOOGLE_MAPs_KEY,
                     language: 'en'
                 }}
                 styles={{

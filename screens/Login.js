@@ -28,7 +28,7 @@ const Login = () => {
             console.log('Account created')
             const user = userCredential.user;
             console.log(user)
-            navigation.navigate('Home')
+            navigation.navigate('t')
         })
             .catch(error => {
                 console.log(error)

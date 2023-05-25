@@ -1,9 +1,17 @@
 import { View,Animated, Text, StyleSheet, TouchableOpacity, Image,ScrollView } from 'react-native'
 import React, { useEffect, useLayoutEffect } from 'react'
-import Zone from './Zonee'
-import Zonee from './Zonee'
-import InfoXe from './infoXe'
+// import Zone from './Zonee'
+// import Zonee from './Zonee'
+// import InfoXe from './infoXe'
+
 import { useNavigation } from '@react-navigation/native';
+import Tram1 from '../Stations/Tram1'
+import Tram2 from '../Stations/Tram2';
+import Tram3 from '../Stations/Tram3';
+import Tram4 from '../Stations/Tram4';
+import Tram5 from '../Stations/Tram5';
+import Dictaphone from './filldataSearch';
+Dictaphone
 const DanhSachTram = () => {
   const navigation = useNavigation();
   const moveAnimation =new Animated.Value(0);
@@ -23,9 +31,12 @@ const DanhSachTram = () => {
   })
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
         <ScrollView>
-        <View >
+          <Dictaphone/>
+          <Tram1/>
+          <Tram2/>
+          
+        {/* <View >
           <TouchableOpacity style={styles.btnLS} onPress={() => navigation.navigate('Xe')}>
             <Image style={styles.btnHis} source={{ url: 'https://cdn-icons-png.flaticon.com/512/3503/3503786.png' }} />
 
@@ -116,9 +127,8 @@ const DanhSachTram = () => {
             </Text>
 
           </TouchableOpacity>
-        </View> */}
+        </View> */} 
         </ScrollView>
-      </View>
 
 
     </View>
